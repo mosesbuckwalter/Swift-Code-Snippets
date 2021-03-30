@@ -12,5 +12,4 @@ func name() -> Void {
         print("Hello \(str)")
     }
 }
-
 name()
