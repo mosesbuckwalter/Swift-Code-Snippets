@@ -6,10 +6,35 @@
 //
 
 import Foundation
-func name() -> Void {
-    print("What is your name?")
-    if let str = readLine(){
-        print("Hello \(str)")
-    }
+func random() -> Int {
+    let number = Int.random(in: 1...100)
+    return number
 }
-name()
+func guess() -> Int {
+    let myguess = Int(readLine()!)!
+    return myguess
+}
+func guess2() -> Int {
+    guard let myguess2 = readLine() else { return 0 }
+    guard let num = Int(myguess2) else { return 0 }
+    return(num)
+}
+func guess3() -> Int {
+    guard let myguess3 = readLine() else { return 0 }
+    guard let num = Int(myguess3) else { return 0 }
+    return(num)
+}
+let number = (random())
+print(number)
+print("What is my number?")
+
+while (guess3()) != number {
+    print("Incorrect. Please Try again.")
+}
+
+if guess3() == number {
+    print("Correct!")
+    exit(EXIT_SUCCESS)
+}
+
+
