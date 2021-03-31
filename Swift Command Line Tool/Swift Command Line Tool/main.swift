@@ -11,30 +11,20 @@ func random() -> Int {
     return number
 }
 func guess() -> Int {
-    let myguess = Int(readLine()!)!
-    return myguess
-}
-func guess2() -> Int {
-    guard let myguess2 = readLine() else { return 0 }
-    guard let num = Int(myguess2) else { return 0 }
-    return(num)
-}
-func guess3() -> Int {
-    guard let myguess3 = readLine() else { return 0 }
-    guard let num = Int(myguess3) else { return 0 }
+    guard let myguess = readLine() else { return 0 }
+    guard let num = Int(myguess) else { return 0 }
     return(num)
 }
 let number = (random())
 print(number)
 print("What is my number?")
 
-while (guess3()) != number {
+while (guess()) != number {
     print("Incorrect. Please Try again.")
 }
 
-if guess3() == number {
+if guess() == number {
     print("Correct!")
     exit(EXIT_SUCCESS)
 }
-
 
