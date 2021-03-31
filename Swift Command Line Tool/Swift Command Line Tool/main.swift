@@ -16,15 +16,12 @@ func guess() -> Int {
     return(num)
 }
 let number = (random())
-print(number)
+print("Guess my number between 1 and 100.")
 print("What is my number?")
-
 while (guess()) != number {
     print("Incorrect. Please Try again.")
 }
-
 if guess() == number {
     print("Correct!")
     exit(EXIT_SUCCESS)
 }
-
