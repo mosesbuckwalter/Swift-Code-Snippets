@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8154BA332612067D001BA654 /* hello world.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8154BA322612067D001BA654 /* hello world.swift */; };
 		81F183192611FF75004FFC1C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F183182611FF75004FFC1C /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8154BA322612067D001BA654 /* hello world.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "hello world.swift"; sourceTree = "<group>"; };
 		81F182742611FAD6004FFC1C /* Swift Command Line Tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift Command Line Tool"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F183182611FF75004FFC1C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,7 +41,6 @@
 		81F1826B2611FAD6004FFC1C = {
 			isa = PBXGroup;
 			children = (
-				81F1831C2612061C004FFC1C /* Swift Command Line Tool Projects */,
 				81F182762611FAD6004FFC1C /* Swift Command Line Tool */,
 				81F182752611FAD6004FFC1C /* Products */,
 			);
@@ -63,14 +60,6 @@
 				81F183182611FF75004FFC1C /* main.swift */,
 			);
 			path = "Swift Command Line Tool";
-			sourceTree = "<group>";
-		};
-		81F1831C2612061C004FFC1C /* Swift Command Line Tool Projects */ = {
-			isa = PBXGroup;
-			children = (
-				8154BA322612067D001BA654 /* hello world.swift */,
-			);
-			path = "Swift Command Line Tool Projects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +119,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8154BA332612067D001BA654 /* hello world.swift in Sources */,
 				81F183192611FF75004FFC1C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
