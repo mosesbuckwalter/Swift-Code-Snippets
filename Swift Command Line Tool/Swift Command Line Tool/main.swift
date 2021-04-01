@@ -18,10 +18,19 @@ func guess() -> Int {
 let number = (random())
 print("Guess my number between 1 and 100.")
 print("What is my number?")
-while (guess()) != number {
-    print("Incorrect. Please Try again.")
-}
-if guess() == number {
-    print("Correct!")
-    exit(EXIT_SUCCESS)
+while number != 0 {
+    let mynumber = guess()
+    if (mynumber == 0) {
+        print("Invalid Input. Please Try again.")
+    }
+    else if (mynumber > number) {
+        print("Try a smaller number.")
+    }
+    else if (mynumber < number) {
+        print("Try a larger number.")
+    }
+    else if (mynumber == number) {
+        print("Correct!")
+        exit(EXIT_SUCCESS)
+    }
 }
