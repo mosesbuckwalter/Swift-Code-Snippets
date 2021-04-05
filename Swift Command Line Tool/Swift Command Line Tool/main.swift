@@ -6,14 +6,17 @@
 //
 
 import Foundation
-func input() -> Float {
-    guard let input = readLine() else { return 0 }
-    guard let num = Float(input) else { return 0 }
-    return(num)
+func input() -> String {
+    guard let input = readLine() else { return "no" }
+    let name = String(input)
+    return(name)
 }
-func convert(number: Float) -> Float {
-    let conversion = (number - 32) * (5/9)
-    return conversion
+func reverse(string:String) -> String {
+    var reverse = ""
+    for char in string {
+        reverse = "\(char)" + reverse
+    }
+    return reverse
 }
-print("Input a number in Fahrenheit to convert to Celsius.")
-print(String(convert(number:input())) + "°C")
+print("Input a string to have it reversed.")
+print(reverse(string: input()))
