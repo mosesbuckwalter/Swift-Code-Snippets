@@ -6,31 +6,14 @@
 //
 
 import Foundation
-func random() -> Int {
-    let number = Int.random(in: 1...100)
-    return number
-}
-func guess() -> Int {
-    guard let myguess = readLine() else { return 0 }
-    guard let num = Int(myguess) else { return 0 }
+func input() -> Float {
+    guard let input = readLine() else { return 0 }
+    guard let num = Float(input) else { return 0 }
     return(num)
 }
-let number = (random())
-print("Guess my number between 1 and 100.")
-print("What is my number?")
-while number != 0 {
-    let mynumber = guess()
-    if (mynumber == 0) {
-        print("Invalid Input. Please Try again.")
-    }
-    else if (mynumber > number) {
-        print("Try a smaller number.")
-    }
-    else if (mynumber < number) {
-        print("Try a larger number.")
-    }
-    else if (mynumber == number) {
-        print("Correct!")
-        exit(EXIT_SUCCESS)
-    }
+func convert(number: Float) -> Float {
+    let conversion = (number - 32) * (5/9)
+    return conversion
 }
+print("Input a number in Fahrenheit to convert to Celsius.")
+print(String(convert(number:input())) + "°C")
