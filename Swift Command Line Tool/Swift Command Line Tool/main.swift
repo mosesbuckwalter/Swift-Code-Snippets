@@ -6,17 +6,18 @@
 //
 
 import Foundation
-func input() -> String {
-    guard let input = readLine() else { return "no" }
-    let name = String(input)
-    return(name)
+func input() -> Int {
+    guard let input = readLine() else { return 0 }
+    guard let num = Int(input) else { return 0 }
+    return(num)
 }
-func reverse(string:String) -> String {
-    var reverse = ""
-    for char in string {
-        reverse = "\(char)" + reverse
+func factorial(number: Int) -> Int {
+    if number == 0 {
+        return 1
     }
-    return reverse
+    else {
+        return number * factorial(number:(number - 1))
+    }
 }
-print("Input a string to have it reversed.")
-print(reverse(string: input()))
+print("Input a number to have the factorial returned.")
+print(factorial(number: input()))
