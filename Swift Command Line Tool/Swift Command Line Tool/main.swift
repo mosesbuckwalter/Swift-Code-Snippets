@@ -6,18 +6,26 @@
 //
 
 import Foundation
-func input() -> Int {
-    guard let input = readLine() else { return 0 }
-    guard let num = Int(input) else { return 0 }
-    return(num)
+func input() -> String {
+    let input = readLine()
+    let value = (input)
+    return(value ?? "EXIT")
 }
-func factorial(number: Int) -> Int {
-    if number == 0 {
-        return 1
+func read() {
+    // Set the file path
+    let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
+
+    do {
+        // Get the contents
+        let contents = try String(contentsOfFile: path, encoding: .utf8)
+        print(contents)
     }
-    else {
-        return number * factorial(number:(number - 1))
+    catch let error as NSError {
+        print("Ooops! Something went wrong: \(error)")
     }
 }
-print("Input a number to have the factorial returned.")
-print(factorial(number: input()))
+read()
+while input() != "EXIT" {
+    input()
+    
+}
