@@ -18,13 +18,21 @@ func read() {
     do {
         // Get the contents
         let contents = try String(contentsOfFile: path, encoding: .utf8)
-        print(contents)
+        let contentsArr = contents.components(separatedBy: " ")
+        var list = contentsArr
+        
+        let reversed2 = list.sorted { $0 > $1 }
+        print(contentsArr)
+        print(list)
+        print(reversed2)
+        
     }
     catch let error as NSError {
         print("Ooops! Something went wrong: \(error)")
     }
 }
 read()
+
 while input() != "EXIT" {
     input()
     
