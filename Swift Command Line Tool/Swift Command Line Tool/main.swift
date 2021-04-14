@@ -4,9 +4,8 @@
 //
 //  Created by Moses Buckwalter on 3/29/21.
 //
-
 import Foundation
-func read() -> Array <Int> {
+func intArray() -> Array <Int> {
     // Set the file path
     let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
     do {
@@ -17,14 +16,11 @@ func read() -> Array <Int> {
             return [Int]()
         }
 }
-
 extension Array where Element: Comparable {
  func insertionSort() -> Array<Element> {
-        //check for trivial case
         guard self.count > 1 else {
             return self
         }
-        //mutated copy
         var output: Array<Element> = self
         
         for primaryindex in 0..<output.count {
@@ -34,8 +30,6 @@ extension Array where Element: Comparable {
             
             while secondaryindex > -1 {
                 if key < output[secondaryindex] {
-                    
-                    //move to correct position
                     output.remove(at: secondaryindex + 1)
                     output.insert(key, at: secondaryindex)
                 }
@@ -44,9 +38,5 @@ extension Array where Element: Comparable {
         }
         return output
     }   }
-
-//execute sort
-let list = read()
-let results: Array<Int> = list.insertionSort()
+let results: Array<Int> = intArray().insertionSort()
 print(results)
-
