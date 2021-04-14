@@ -11,39 +11,56 @@ func input() -> String {
     let value = (input)
     return(value ?? "EXIT")
 }
-import Foundation
 
-enum FileWriteError: Error {
-    case directoryDoesntExist
-    case convertToDataIssue
-}
+func read() -> Array <Int> {
+    // Set the file path
+    let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
 
-protocol FileWriter {
-    var fileName: String { get }
-    func write(_ text: String) throws
-}
-
-extension FileWriter {
-    var fileName: String { return "File.txt" }
-
-    func write(_ text: String) throws {
-        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            throw FileWriteError.directoryDoesntExist
-        }
-
-        let encoding = String.Encoding.utf8
-
-        guard let data = text.data(using: encoding) else {
-            throw FileWriteError.convertToDataIssue
-        }
-
-        let fileUrl = dir.appendingPathComponent(fileName)
-
-        if let fileHandle = FileHandle(forWritingAtPath: fileUrl.path) {
-            fileHandle.seekToEndOfFile()
-            fileHandle.write(data)
-        } else {
-            try text.write(to: fileUrl, atomically: false, encoding: encoding)
-        }
+    do {
+        // Get the contents
+        let contents = try String(contentsOfFile: path, encoding: .utf8)
+        let contentsArr = contents.components(separatedBy: " ")
+        let intArray = contentsArr.map { Int($0)!}
+        return intArray
+        
+    }
+    catch let error as NSError {
+        print("Ooops! Something went wrong: \(error)")
+        let broken: Array<Int> = [1, 1, 1, 1, 1, 1, 1, 1]
+        return broken
     }
 }
+
+extension Array where Element: Comparable {
+ func insertionSort() -> Array<Element> {
+        //check for trivial case
+        guard self.count > 1 else {
+            return self
+        }
+        //mutated copy
+        var output: Array<Element> = self
+        
+        for primaryindex in 0..<output.count {
+            
+            let key = output[primaryindex]
+            var secondaryindex = primaryindex
+            
+            while secondaryindex > -1 {
+                if key < output[secondaryindex] {
+                    
+                    //move to correct position
+                    output.remove(at: secondaryindex + 1)
+                    output.insert(key, at: secondaryindex)
+                }
+                secondaryindex -= 1
+            }
+        }
+        return output
+    }   }
+
+//execute sort
+let list = read()
+print(list)
+let results: Array<Int> = list.insertionSort()
+print(results)
+
