@@ -6,29 +6,16 @@
 //
 
 import Foundation
-func input() -> String {
-    let input = readLine()
-    let value = (input)
-    return(value ?? "EXIT")
-}
-
 func read() -> Array <Int> {
     // Set the file path
     let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
-
     do {
-        // Get the contents
-        let contents = try String(contentsOfFile: path, encoding: .utf8)
-        let contentsArr = contents.components(separatedBy: " ")
-        let intArray = contentsArr.map { Int($0)!}
-        return intArray
-        
-    }
-    catch let error as NSError {
-        print("Ooops! Something went wrong: \(error)")
-        let broken: Array<Int> = [1, 1, 1, 1, 1, 1, 1, 1]
-        return broken
-    }
+            let numbers = try String(contentsOfFile: path).components(separatedBy: " ")
+                .flatMap {Int($0)}
+            return numbers
+        } catch {
+            return [Int]()
+        }
 }
 
 extension Array where Element: Comparable {
@@ -60,7 +47,6 @@ extension Array where Element: Comparable {
 
 //execute sort
 let list = read()
-print(list)
 let results: Array<Int> = list.insertionSort()
 print(results)
 
