@@ -6,7 +6,6 @@
 //
 import Foundation
 func intArray() -> Array <Int> {
-    // Set the file path
     let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
     do {
             let numbers = try String(contentsOfFile: path).components(separatedBy: " ")
