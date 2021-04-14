@@ -11,7 +11,7 @@ func read() -> Array <Int> {
     let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
     do {
             let numbers = try String(contentsOfFile: path).components(separatedBy: " ")
-                .flatMap {Int($0)}
+                .compactMap {Int($0)}
             return numbers
         } catch {
             return [Int]()
