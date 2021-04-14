@@ -12,13 +12,13 @@ func input() -> String {
 }
 func write() {
     let filePath = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
-    var arrayInput: [String] = []
-    while input() != "EXIT" {
-        arrayInput.append(input())
-        input()
-        print(arrayInput)
+    var array: [String] = []
+    var arrayInput = ""
+    while arrayInput != "EXIT" {
+        array.append(arrayInput)
+        arrayInput = input()
     }
-    let joinedStrings = arrayInput.joined(separator: "\n")
+    let joinedStrings = array.joined(separator: "\n")
 
     do {
         try joinedStrings.write(toFile: filePath, atomically: true, encoding: .utf8)
