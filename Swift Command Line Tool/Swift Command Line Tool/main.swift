@@ -5,37 +5,52 @@
 //  Created by Moses Buckwalter on 3/29/21.
 //
 import Foundation
-func intArray() -> Array <Int> {
-    let path = "/Users/mosesbuckwalter/Developer/Xcode/Swift-Code-Snippets/Swift Command Line Tool/Swift Command Line Tool/File"
-    do {
-            let numbers = try String(contentsOfFile: path).components(separatedBy: " ")
-                .compactMap {Int($0)}
-            return numbers
-        } catch {
-            return [Int]()
-        }
+func input() -> String {
+    let input = readLine()
+    let value = (input)
+    return(value ?? "EXIT")
 }
-extension Array where Element: Comparable {
- func insertionSort() -> Array<Element> {
-        guard self.count > 1 else {
-            return self
-        }
-        var output: Array<Element> = self
+func write() {
+    let fileName = "File"
+      var filePath = ""
+      
+      // Fine documents directory on device
+      let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+      
+      if dirs.count > 0 {
+          let dir = dirs[0] //documents directory
+          filePath = dir.appending("/" + fileName)
+          print("Local path = \(filePath)")
+      } else {
+          print("Could not find local directory to store file")
+          return
+      }
+    let arrayInput : Array<String> = []
+    let something = arrayInput
+    while input() != "EXIT" {
+        let arrayItem = input()
         
-        for primaryindex in 0..<output.count {
-            
-            let key = output[primaryindex]
-            var secondaryindex = primaryindex
-            
-            while secondaryindex > -1 {
-                if key < output[secondaryindex] {
-                    output.remove(at: secondaryindex + 1)
-                    output.insert(key, at: secondaryindex)
-                }
-                secondaryindex -= 1
-            }
+    }
+    // Set the contents
+    let fileContentToWrite = writefile
+      
+    do {
+        // Write contents to file
+        try fileContentToWrite.write(toFile: filePath, atomically: false, encoding: String.Encoding.utf8)
         }
-        return output
-    }   }
-let results: Array<Int> = intArray().insertionSort()
-print(results)
+    catch let error as NSError {
+        print("An error took place: \(error)")
+    }
+
+    // Read file content. Example in Swift
+    do {
+        // Read file content
+        let contentFromFile = try NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue)
+        print(contentFromFile)
+    }
+    catch let error as NSError {
+        print("An error took place: \(error)")
+    }
+}
+
+
